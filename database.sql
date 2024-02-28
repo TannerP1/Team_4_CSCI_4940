@@ -1,20 +1,24 @@
-Create Database myDB;
-USE myDB;
+create database myDB;
+use myDB;
 CREATE TABLE Students(
    Student_id  INTEGER NOT NULL,
    FName VARCHAR(255),
    LNanme  VARCHAR(255),
-   Email Varchar(255),
+   Email VARCHAR(255),
    Phone VARCHAR(10),
-   primary key(Student_id)
+   PRIMARY KEY(Student_id)
 );
 
 CREATE TABLE Professors(
+   p_id INTEGER,
    P_name VARCHAR(255),
-   O_hours TIME ,
+   Begin_O_hrs TIME,
+   End_O_hrs TIME,
    O_num INTEGER,
+   day_of_week VARCHAR(10),
    Building VARCHAR(255),
-   Email VARCHAR(255)
+   Email VARCHAR(255),
+   PRIMARY KEY(p_id)
 );
 
 CREATE TABLE OtherEvents(
