@@ -1,3 +1,4 @@
+
 Create Database myDB;
 use myDB;
 CREATE TABLE Students(
@@ -57,4 +58,13 @@ values("Boxing class","2024-03-23","03:00:00","Florrie Chappell Gymnasium","Join
 ("Yoga class","2024-03-30","2:30:00","Florrie Chappell Gymnasium","Join us for a rejuvenating Serene Flow Yoga class designed to help you unwind, de-stress, and reconnect with your body and mind. Led by our experienced and compassionate instructor, this class offers a perfect blend of gentle movements, breath work, and mindfulness practices suitable for all levels, from beginners to experienced yogis.","yoga.jpeg","03:30:00"),
 ("Club Fair","2024-04-01","11:00:00","Storm Dome","Are you passionate about promoting fairness, equality, and social justice? Join the Fair Club and become part of a community dedicated to making a positive impact on campus and beyond!","club_fair.jpeg","02:00:00");
 
+rename table students to users;
+rename table campusevents to gen_events;
 
+create table User_events(
+user_id INTEGER,
+event_id INTEGER,
+primary key(user_id,event_id),
+foreign key(user_id) References users(Student_id),
+foreign key(event_id) References gen_events(Event_id)
+);
