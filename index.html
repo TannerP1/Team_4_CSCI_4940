@@ -5,38 +5,51 @@
     <meta charset="UTF-8">
     <title>C.H.O.I.C.E</title>
     <link href="stylesheet.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>   
-                <li><a href="events.html">Events</a></li>
-                <li><a href="about.html">About</a></li>
-
+                <li style="float: left;"><a href="index.html"><div class="logo">Choice</div></a></li>
+                <li style="float: inline-start;"><a href="events.html">Events</a></li>
+                <li style="float: inline-start;"><a href="officehours.html">Office Hours</a></li>
+                <li style="float: inline-start;"><a href="about.html">About</a></li>
+                <li style="float: right;">Notifications</li>
+                <li style="float: right;">Profile</li>
             </ul>
         </nav>
     </header>
 
     <main class="container">
         <section id="home">
-            <h2>Welcome to Campus Hub for Office hours, Information, and Community Events(C.H.O.I.C.E)</h2>        <!--Title is a work in progress-->
-            <p>Find and explore different events here. You will also be able to see the office hours of all professors and faculty on campus</p>
+            <h2>Welcome to CHOICE</h2>        <!--Title is a work in progress-->
+            <p>Discover Your Campus Journey with CHOICE: Where office hours and campus events are found easily!</p>
+            <p>Navigate to the Events or Office Hours Tabs to get started!</p>
         </section>
+        
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="item active">
+                <img src="Photos/Main/1.jpg" alt="Los Angeles" width="100%">
+              </div>
+          
+              <div class="item">
+                <img src="Photos/Main/2.jpg" alt="Chicago" width="100%">
+              </div>
+          
+              <div class="item">
+                <img src="Photos/Main/3.jpg" alt="New York" width="100%">
+              </div>
+            </div>
 
-        <section id="events">
-            <h2>Events</h2>
-            <!-- Event listings will be dynamically populated here -->
-            <p>Nothing to see yet...</p>
-        </section>
 
-
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p><a href="jgreen36@radar.gsw.edu">Jaylyn Green</a>
-            <a href="tpowel11@radar.gsw.edu">Tanner Powell</a>
-            </p>
-        </section>
-    </main>
-</body>
+    
+            <footer>
+                    <p style="font-size: small;">Contact Us: <a style="color: #C69214;" href="mailto:jgreen36@radar.gsw.edu">Jaylyn Green</a> or <a style="color: #C69214;" href="mailto:tpowel11@radar.gsw.edu">Tanner Powell</a></p>
+            </footer>
+        </main>
+    </body>
 </html>
