@@ -68,4 +68,4 @@ primary key(user_id,event_id),
 foreign key(user_id) References users(Student_id),
 foreign key(event_id) References gen_events(Event_id)
 );
-
+drop table otherevents;
