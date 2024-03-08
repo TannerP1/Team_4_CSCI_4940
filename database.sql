@@ -2,7 +2,7 @@
 Create Database myDB;
 use myDB;
 CREATE TABLE Students(
-   Student_id  INTEGER NOT NULL,
+   Student_id  INTEGER auto_increment NOT NULL,
    FName VARCHAR(255),
    LNanme  VARCHAR(255),
    Email VARCHAR(255),
@@ -11,19 +11,19 @@ CREATE TABLE Students(
 );
 
 CREATE TABLE Professors(
-   p_id INTEGER,
+   p_id INTEGER auto_increment NOT NULL,
    P_name VARCHAR(255),
    Begin_O_hrs TIME,
    End_O_hrs TIME,
    O_num INTEGER,
-   day_of_week VARCHAR(10),
+   day_of_week VARCHAR(255),
    Building VARCHAR(255),
    Email VARCHAR(255),
    PRIMARY KEY(p_id)
 );
 
 CREATE TABLE OtherEvents(
-   Event_id INTEGER NOT NULL,
+   Event_id INTEGER auto_increment NOT NULL,
    Event_name VARCHAR(255),
    Event_date DATE,
    Event_time  TIME,
@@ -34,7 +34,7 @@ CREATE TABLE OtherEvents(
 );
 
 CREATE TABLE CampusEvents(
-  Event_id INTEGER NOT NULL,
+  Event_id INTEGER auto_increment NOT NULL,
    Event_name Varchar(255),
    Event_date DATE,
    Event_time TIME,
@@ -44,9 +44,9 @@ CREATE TABLE CampusEvents(
    PRIMARY KEY(Event_id)
 );
 
-insert into professors(Begin_O_hrs,End_O_hrs,O_num,begin_day,Building,Email,end_day) 
-values("Sai Mukkavilli","10:45:00","12:00:00,", "203", "Monday", "Crawford Wheatley", "sai.mukkavilli@gsw.edu","Thursdsay"),
-("Satayaki Nan","09:30:00", "10:45:00","211","Monday", "Crawford Wheatley", "satayaki.nan@gsw.edu","Thursday");
+insert into professors(P_name,Begin_O_hrs,End_O_hrs,O_num,day_of_week,Building,Email) 
+values("Sai Mukkavilli","10:45:00","12:00:00", "203", "Monday,Tuesday,Wednesday,Thursday", "Crawford Wheatley", "sai.mukkavilli@gsw.edu"),
+("Satayaki Nan","09:30:00", "10:45:00","211","Monday,Tuesday,Wednesday,Thursday", "Crawford Wheatley", "satayaki.nan@gsw.edu");
 
 Alter table campusevents add Event_end_time time;
 select * from campusevents;
@@ -68,3 +68,4 @@ primary key(user_id,event_id),
 foreign key(user_id) References users(Student_id),
 foreign key(event_id) References gen_events(Event_id)
 );
+
