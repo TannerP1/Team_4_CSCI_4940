@@ -1,21 +1,38 @@
-//file creates a server for website
-const express=require('express');
-const path= require('path');
-const app=express();
+const express = require('express');
+const mysql = require('mysql');
+const path = require('path');
+const cors = require('cors');
+const app = express();
 
-const db= mysql.createConnection({
+app.use(cors()); 
+
+const db = mysql.createConnection({
     host: "localhost",
-    username: "root",
-    password: "password",
-    database:"capstone"
-});
-app.get("/index", (req,res)=>{
-    //Query for events table 
-    db.query("SELECT * FROM gen_events")
-})
-app.listen(5500,()=>{
-    console.log("Server is listening...");
+    user: "root",
+    password: "CSCI4400",
+    database: "mydb"
 });
 
-//to run, type "npm start" in terminal
-   
+db.connect((err) => {
+    if (err) {
+        throw err;
+    }
+    console.log('Connected to MySQL database');
+});
+
+app.get("/index", (req, res) => {
+    db.query("SELECT * FROM gen_events", (err, results) => {
+        if (err) {
+            console.error('Error querying database:', err);
+            res.status(500).send('Error querying database');
+        }
+         else {
+            res.json(results);
+        }
+    });
+});
+
+const PORT = 5500;
+app.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}...`);
+});
