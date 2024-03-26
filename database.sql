@@ -1,4 +1,4 @@
-
+/*mysql script to create database and populate each table with info*/
 Create Database myDB;
 use myDB;
 CREATE TABLE Students(
