@@ -1,8 +1,8 @@
 //This file connects the frontend and backend
-const express = require('express');           /*importing express module
-const mysql = require('mysql');                 imports mysql module to allow interaction with database
-const path = require('path');                   path module to work with files and directories
-const cors = require('cors');                   allows requests from other domains*/
+const express = require('express');           //importing express module
+const mysql = require('mysql');               //imports mysql module to allow interaction with database
+const path = require('path');                 //path module to work with files and directories
+const cors = require('cors');                 //allows requests from other domains
                                                         
 const app = express();                            
 
