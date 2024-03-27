@@ -69,3 +69,6 @@ foreign key(user_id) References users(Student_id),
 foreign key(event_id) References gen_events(Event_id)
 );
 drop table otherevents;
+insert into professors(P_name,Begin_O_hrs,End_O_hrs,O_num,day_of_week,Building,Email) 
+values("Ru Story-Huffman","08:00:00","11:00:00","202","Monday,Wednesday,Thursday","James E. Carter Library","ru.story-huffman@gsw.edu"),
+("Mikela Barlow","09:00:00","11:00:00","304","Monday,Wednesday,Thursday,Friday","Student Success Center","mikela.barlow@gsw.edu");
