@@ -1,40 +1,50 @@
-//This file connects the frontend and backend
-const express = require('express');           //importing express module
-const mysql = require('mysql');               //imports mysql module to allow interaction with database
-const path = require('path');                 //path module to work with files and directories
-const cors = require('cors');                 //allows requests from other domains
-                                                        
-const app = express();                            
+const express = require('express');
+const mysql = require('mysql');
+const path = require('path');
+const cors = require('cors');
+const app = express();
 
 app.use(cors()); 
 
-const db = mysql.createConnection({        //creating connection between database and frontend
+
+
+const db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "CSCI4400",
     database: "mydb"
 });
 
-db.connect((err) => {                    //Error catcher
+db.connect((err) => {
     if (err) {
         throw err;
     }
     console.log('Connected to MySQL database');
 });
 
-app.get("/index", (req, res) => {                //pulling data
+app.get("/events", (req, res) => {
     db.query("SELECT * FROM gen_events", (err, results) => {
         if (err) {
             console.error('Error querying database:', err);
-            res.status(500).send('Error querying database');
         }
          else {
-            res.json(results);
+            res.json(JSON.stringify(results));
+        }
+    });
+});
+app.get("/officehours", (req, res) => {
+    db.query("SELECT * FROM professors", (err, results) => {
+        if (err) {
+            console.error('Error querying database:', err);
+        }
+         else {
+            res.json(JSON.stringify(results));
         }
     });
 });
 
 const PORT = 5500;
+app.use(express.static(__dirname, ""));
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}...`);
 });
