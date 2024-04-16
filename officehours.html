@@ -20,7 +20,7 @@
         </nav>
     </header>
 
-    <main class="container">
+    <main class="hours">
         Office Hours Page
 
         <footer>
@@ -28,4 +28,13 @@
         </footer>
     </main>
 </body>
+<script>
+    fetch('/officehours')
+    .then(response => response.json())
+    .then(data => {
+            console.log(data);
+    }
+    )
+    .catch(error => console.log(error));
+</script>
 </html>
